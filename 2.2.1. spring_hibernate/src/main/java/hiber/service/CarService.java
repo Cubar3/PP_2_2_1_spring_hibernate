@@ -1,13 +1,12 @@
 package hiber.service;
 
 import hiber.model.Car;
-import hiber.model.User;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public interface UserService {
-    void addUser(User user);
-
-    List<User> listUsers();
+public interface CarService {
+    void addCar(Car car);
+    @Transactional(readOnly = true)
+    List<Car> listCar();
 }

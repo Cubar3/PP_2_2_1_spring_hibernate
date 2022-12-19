@@ -1,12 +1,14 @@
 package hiber.model;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
 @Entity
 @Table (name = "cars")
-@Component
+@Component("carBean")
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +18,9 @@ public class Car {
     private String model;
     @Column(name = "series")
     private int series;
+
+    @OneToOne (mappedBy = "car", cascade = CascadeType.ALL)
+    private User user;
 
     public Car() {
     }
@@ -52,5 +57,13 @@ public class Car {
     @Override
     public String toString() {
         return model + " " + series;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

@@ -31,8 +31,13 @@ public class User {
    private Car car;
 
    public User() {}
-   
-@Autowired
+
+   public User(String firstName, String lastName, String email) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.email = email;
+   }
+
    public User(String firstName, String lastName, String email, Car userCar) {
       this.firstName = firstName;
       this.lastName = lastName;

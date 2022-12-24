@@ -16,8 +16,9 @@ public class UserDaoImp implements UserDao {
 
 
    private SessionFactory sessionFactory;
+
    @Autowired
-   public void setSessionFactory(SessionFactory sessionFactory) {
+   public UserDaoImp(SessionFactory sessionFactory) {
       this.sessionFactory = sessionFactory;
    }
 
